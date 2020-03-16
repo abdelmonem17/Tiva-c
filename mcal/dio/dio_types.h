@@ -1,4 +1,9 @@
-
+/*
+ * dio.c
+ *
+ *  Created on: Jul 8, 2019
+ *      Author: Abdelmonem Mostafa
+ */
 
 #ifndef E15_ARM_REPO_MCAL_DIO_DIO_TYPES_H_
 #define E15_ARM_REPO_MCAL_DIO_DIO_TYPES_H_
@@ -57,7 +62,8 @@ typedef enum
     Dio_Channel_F1,
     Dio_Channel_F2,
     Dio_Channel_F3,
-    Dio_Channel_F4
+    Dio_Channel_F4,
+    Dio_Channel_F5,
 
 }Dio_ChannelType;
 

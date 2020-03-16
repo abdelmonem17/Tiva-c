@@ -2,7 +2,7 @@
  * SysCtr.c
  *
  *  Created on: Aug 2, 2019
- *      Author: Muhammad.Elzeiny
+ *      Author: Abdelmonem Mostafa
  */
 #include "../mcu_hw.h"
 #include "../../utils/STD_Types.h"

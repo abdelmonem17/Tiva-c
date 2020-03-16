@@ -2,7 +2,7 @@
  * Bit_Math.h
  *
  *  Created on: Jun 15, 2019
- *      Author: Muhammad.Elzeiny
+ *      Author: Abdelmonem Mostafa
  */
 
 #ifndef E15_LAB_SRC_UTILS_BIT_MATH_H_

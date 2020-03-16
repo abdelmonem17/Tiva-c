@@ -2,7 +2,7 @@
  * processor.h
  *
  *  Created on: Dec 2, 2019
- *      Author: Muhammad.Elzeiny
+ *      Author: Abdelmonem Mostafa
  */
 
 #ifndef TM4C123_FIRMWARE_UTILS_PROCESSOR_PROCESSOR_H_

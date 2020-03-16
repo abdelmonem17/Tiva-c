@@ -1,8 +1,8 @@
 /*
- * port_types.h
+ *
  *
  *  Created on: Jul 8, 2019
- *      Author: Muhammad.Elzeiny
+ *      Author: Abdelmonem Mostafa
  */
 
 #ifndef E15_ARM_REPO_MCAL_PORT_DRIVER_PORT_TYPES_H_
@@ -111,7 +111,6 @@ typedef enum
     Port_Channel_F2,
     Port_Channel_F3,
     Port_Channel_F4,
-
     Port_Channel_MaxNum
 }Port_ChIdType;
 

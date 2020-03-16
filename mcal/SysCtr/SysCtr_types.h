@@ -2,7 +2,7 @@
  * SysCtr_Types.h
  *
  *  Created on: Dec 2, 2019
- *      Author: Muhammad.Elzeiny
+ *      Author: Abdelmonem Mostafa
  */
 
 #ifndef TM4C123_FIRMWARE_MCAL_SYSCTR_SYSCTR_TYPES_H_

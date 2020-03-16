@@ -9,7 +9,7 @@
 #define E15_ARM_REPO_CONFIG_SYSCTR_CFG_H_
 #include "../utils/STD_types.h"
 
-/*TODO implement suitable container to store the followings
+/*implement suitable container to store the followings
  *
  * which peripheral clock gate Enabled
  * Desired System clock Source
@@ -19,12 +19,12 @@
 #define     CLOCK_ENABLE        1
 #define     CLOCK_DISABLE       0
 
-#define     PORTA               CLOCK_DISABLE
+#define     PORTA               CLOCK_ENABLE
 #define     PORTB               CLOCK_DISABLE
 #define     PORTC               CLOCK_DISABLE
 #define     PORTD               CLOCK_DISABLE
 #define     PORTE               CLOCK_DISABLE
-#define     PORTF               CLOCK_DISABLE
+#define     PORTF               CLOCK_ENABLE
 
  #define    UART0                CLOCK_DISABLE
  #define    UART1                CLOCK_DISABLE

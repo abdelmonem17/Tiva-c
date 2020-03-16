@@ -1,13 +1,19 @@
 
+/*
+ *
+ *
+ *  Created on: Jul 8, 2019
+ *      Author: Abdelmonem Mostafa
+ */
 #define MAX_NUM_OF_CH_IN_PORT       8
 #define MAX_NUM_OF_PORTS            6
 
-#include <tm4c123_firmware/utils/Std_Types.h>
-#include "../../utils/Bit_Math.h"
-#include "../../config/port_cfg.h"
-#include "../mcu_hw.h"
-#include <tm4c123_firmware/mcal/PortDriver/port_types.h>
-#include <tm4c123_firmware/mcal/PortDriver/port.h>
+#include "utils/Std_Types.h"
+#include "utils/Bit_Math.h"
+#include "config/port_cfg.h"
+#include "mcal/mcu_hw.h"
+#include "mcal/PortDriver/port_types.h"
+#include "mcal/PortDriver/port.h"
 
 extern Port_CfgType PortCfgArr[];
 
@@ -36,12 +42,35 @@ void PORT_init(void)
         /*get Channel Position in PortGroup using ChannelId */
         ChannelPosInPort = ChannelId % MAX_NUM_OF_CH_IN_PORT;
 
+        /* check if pin locked*/
+
+        if(PortCfgArr[CfgArrIndex].LockStatus)
+        {
+            BaseAddr->GPIOLOCK = 0x4C4F434B;
+            BaseAddr->GPIOCR   |=  (1<<ChannelPosInPort);
+        }
+
+        /*  select internal resistance option */
+        switch(PortCfgArr[CfgArrIndex].AttachedRes)
+        {
+            case  Port_InternalAttach_PullUpRes :
+                BaseAddr->GPIOPUR  |=  (1<<ChannelPosInPort);
+            break;
+            default:
+
+            break;
+        }
+
+
+
         /*NOTE use channel position in Group to write in corresponding bit in Desired Register */
         switch(PortCfgArr[CfgArrIndex].Mode)
         {
 
             case PORT_MODE_PIN_X_DIO:
-                BaseAddr->GPIODEN |=(1<<ChannelPosInPort);
+                    /*disable alternative function*/
+                BaseAddr->GPIOAFSEL &= ~(1<<ChannelPosInPort);
+                   /*set the direction */
                 switch(PortCfgArr[CfgArrIndex].Dir)
                 {
                     case port_Dir_Output :
@@ -53,7 +82,12 @@ void PORT_init(void)
                 }
                 break;
                 default :
-                    /*   */
+                    /*enable alternative function */
+                    BaseAddr->GPIOAFSEL |= (1<<ChannelPosInPort);
+                    /*select the alternative function */
+                                            /* clear 4 bits that used for this pin  & set the alternative function value */
+                    BaseAddr->GPIOPCTL   &=  ( ~(0x0F << ChannelPosInPort) );
+                    BaseAddr->GPIOPCTL   |=  ( (0x0F & PortCfgArr[CfgArrIndex].Mode ) << ChannelPosInPort) ;
                     break;
         }
         /*TODO: set channel direction */
@@ -83,13 +117,17 @@ void PORT_init(void)
         /*Check if analog functionality is required*/
         if(PortCfgArr[CfgArrIndex].Mode != Port_Mode_AIN )
         {
-            /*TODO: enable digital and disable ADC  */
-
+            /* enable digital and disable ADC  */
+            /*enable digit to this pin *             */
+            BaseAddr->GPIOAMSEL &= ~(1<<ChannelPosInPort);
+            BaseAddr->GPIODEN   |= (1<<ChannelPosInPort);
 
         }
         else
         {
-            /*TODO: disable digital and enable ADC */
+            /* disable digital and enable ADC */
+            BaseAddr->GPIODEN   &= ~(1<<ChannelPosInPort);
+            BaseAddr->GPIOAMSEL |= (1<<ChannelPosInPort);
 
         }
     }

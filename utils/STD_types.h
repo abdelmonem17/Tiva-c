@@ -2,7 +2,7 @@
  * STD_types.h
  *
  *  Created on: Jul 23, 2019
- *      Author: Muhammad.Elzeiny
+ *      Author: Abdelmonem Mostafa
  */
 
 #ifndef E15_ARM_REPO_UTILS_STD_TYPES_H_

@@ -4,17 +4,14 @@ PROCESSOR_ModeType u8_SVCSwitchValue;
 
 void PROCESSOR_switchMode(PROCESSOR_ModeType Mode)
 {
-    /* TODO use Svc assembly instruction to switch to handler mode*/
     u8_SVCSwitchValue=Mode;
     SVCALL();
 
 }
 
-/*TODO: Put the following function address in Vector table */
 void PROCESSOR_SvcHandler(void)
 {
-    /*TODO use TMPL bit field in CONTROL Register to switch between
-     * privilege and non-privilege modes.See page(88) */
+    
     switch(u8_SVCSwitchValue)
     {
         case PROCESSOR_ModePrivilege:

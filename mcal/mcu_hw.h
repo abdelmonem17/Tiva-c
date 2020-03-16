@@ -1,4 +1,9 @@
-
+/*
+ * Port_hw.h
+ *
+ *  Created on: Jul 23, 2019
+ *      Author: Abdelmonem Mostafa
+ */
 
 #ifndef E15_ARM_REPO_MCAL_PORT_DRIVER_PORT_HW_H_
 #define E15_ARM_REPO_MCAL_PORT_DRIVER_PORT_HW_H_
@@ -117,7 +122,7 @@ typedef union
 typedef struct
 {
     uint32 GPIODATA    ;
-    uint8 Reserved_1 [0x3FC];
+    //uint8 Reserved_1 [0x3FC];
     uint32 GPIODIR     ;
     uint32 GPIOIS      ;
     uint32 GPIOIBE     ;
