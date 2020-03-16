@@ -1,10 +1,4 @@
 
-/*
- * port.c
- *
- *  Created on: Nov 12, 2019
- *      Author: Muammad Elzeiny
- */
 #define MAX_NUM_OF_CH_IN_PORT       8
 #define MAX_NUM_OF_PORTS            6
 
