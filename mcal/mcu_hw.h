@@ -1,9 +1,4 @@
-/*
- * Port_hw.h
- *
- *  Created on: Jul 23, 2019
- *      Author: Muhammad.Elzeiny
- */
+
 
 #ifndef E15_ARM_REPO_MCAL_PORT_DRIVER_PORT_HW_H_
 #define E15_ARM_REPO_MCAL_PORT_DRIVER_PORT_HW_H_
